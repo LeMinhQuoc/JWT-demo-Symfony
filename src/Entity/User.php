@@ -41,10 +41,11 @@ class User implements UserInterface
 
     public function setData(Request $input): self
     {
+        $data = json_decode($input->getContent(),true);
 //        $this->fullName = $input->get('fullName');
 //        $this->email = $input->get('email');
 //        $this->phone = $input->get('phone');
-        $this->userName = $input->get('userName');
+        $this->username = $data['username'];
         return $this;
     }
 
